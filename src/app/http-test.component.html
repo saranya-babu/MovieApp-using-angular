@@ -1,40 +1,64 @@
 
-<div class="jumbotron ">
-<label class="text-align">Enter your Movie!!</label>
-   <div class="form-group">
-  <input class="form-control" id="inputdefault" [(ngModel)]="value" placeholder="movie Name"/></div>  <br>
+<body>
+   
+<md-toolbar color="primary" class="font-color">
+ <span>Movie App!</span>&nbsp;&nbsp;&nbsp;
+ <span> <a href="#"><strong>Home</strong></a></span>&nbsp;&nbsp;
+ <span><a href="#"><strong>MyFavourites</strong></a></span>
+</md-toolbar>
+
+ <div class="jumbotron">
   <div class="form-group">
-  <button  (click)="onTestGet(value)" class="btn btn-success">Search</button></div>
-  </div>
-
-  <div class="container search-results" 
-  infinite-scroll
-   [infiniteScrollDistance]="scrollDistance" 
-   [infiniteScrollThrottle]="throttle"
-    (scrolled)="onScroll(value,page)">
-        
-    <md-card id="card" *ngFor='let re of getData'>
-      
-     <div class="row">
-       <div class="col-md-6">
-           <img src="https://image.tmdb.org/t/p/w500{{re.poster_path}}" alt="image" class="img-align">
-       </div>
-       <div class="col-md-6">
-           <md-card-title class="panel panel-default">Title: {{re.title}}<button class="glyphicon glyphicon-star pull-right" (click)=pushData(re.title,re.poster_path,re.popularity,re.overview,re.original_language,re.genre_ids)></button></md-card-title><br>
-           <md-card-title>Language: {{re.original_language}}</md-card-title><br>
-           <md-card-title>Popularity: {{re.popularity}}</md-card-title><br>   
-           <md-card-title>Genre:{{genrefunction(re.genre_ids)}}</md-card-title><br>
-          <md-card-title class="well">Overview: {{re.overview}}</md-card-title><br>
-     </div>
+   <label class="text-align">Enter your Movie!!</label><br>
+    <input class="form-control" id="inputdefault" [(ngModel)]="value" placeholder="movie Name"/><br>
+    <button (click)="onTestGet(value)" class="btn btn-success"> <span class="glyphicon glyphicon-search"></span> Search</button>
     </div>
-    </md-card>
-    <div *ngIf="MovieArray">
-      <div *ngFor="let item of MovieArray">
-        <md-card-title>title:{{item.a}}</md-card-title><br>
-        <md-card-title>image:<img src="https://image.tmdb.org/t/p/w500{{item.b}}" alt="image" class="img-align"></md-card-title>
-        <md-card-title>popularity:{{item.c}}</md-card-title>
-        <md-card-title>overview:{{item.d}}</md-card-title>
 
+</div>
+
+<!--
+<div class="container ">
+   <label class="text-align">Enter your Movie!!</label>
+   <div class="form-group">
+      <input class="form-control" id="inputdefault" [(ngModel)]="value" placeholder="movie Name"/>
+   </div>
+   <br>
+   <div class="form-group">
+      <button (click)="onTestGet(value)" class="btn btn-success">Search</button>
+   </div>
+</div>-->
+<div class="container search-results" 
+infinite-scroll
+[infiniteScrollDistance]="scrollDistance" 
+[infiniteScrollThrottle]="throttle"
+(scrolled)="onScroll(value,page)">
+<md-card id="card" *ngFor='let re of getData'>
+   <div class="row">
+      <div class="col-md-6">
+         <img src="https://image.tmdb.org/t/p/w500{{re.poster_path}}" alt="image" class="img-align">
       </div>
-    </div>
-  </div>
+      <div class="col-md-6">
+         <md-card-title class="panel panel-default">Title: {{re.title}}<button class="glyphicon glyphicon-star pull-right" (click)=pushData(re.title,re.poster_path,re.popularity,re.overview,re.original_language,re.genre_ids)></button></md-card-title>
+         <br>
+         <md-card-title>Language: {{re.original_language}}</md-card-title>
+         <br>
+         <md-card-title>Popularity: {{re.popularity}}</md-card-title>
+         <br>   
+         <md-card-title>Genre:{{genrefunction(re.genre_ids)}}</md-card-title>
+         <br>
+         <md-card-title class="well">Overview: {{re.overview}}</md-card-title>
+         <br>
+      </div>
+   </div>
+</md-card>
+<div *ngIf="MovieArray">
+   <div *ngFor="let item of MovieArray">
+      <md-card-title>title:{{item.a}}</md-card-title>
+      <br>
+      <md-card-title>image:<img src="https://image.tmdb.org/t/p/w500{{item.b}}" alt="image" class="img-align"></md-card-title>
+      <md-card-title>popularity:{{item.c}}</md-card-title>
+      <md-card-title>overview:{{item.d}}</md-card-title>
+   </div>
+</div>
+</div>
+</body>

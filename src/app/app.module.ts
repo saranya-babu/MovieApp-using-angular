@@ -15,7 +15,7 @@ import {RouterModule} from '@angular/router'
 @NgModule({
   declarations: [
     AppComponent,
-    HTTPTestComponent,
+    HTTPTestComponent
   ],
   imports: [
     BrowserModule,
@@ -28,8 +28,8 @@ import {RouterModule} from '@angular/router'
     MdIconModule,
     MdInputModule,
     BrowserAnimationsModule,
-    InfiniteScrollModule
-        ],
+    InfiniteScrollModule,
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

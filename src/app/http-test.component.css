@@ -1,7 +1,9 @@
-img
+body
 {
-     width:100%;
+    overflow-x:hidden;
 }
+
+
 
 .img-align
 {
@@ -11,21 +13,39 @@ img
 .col-md-6
 {
     text-align: justify;
-    font-family: 'Josefin Sans';
+    font-family: 'El Messiri';
+    font-size: 16px;
 }
 
 .text-align{
-     font-family: 'Josefin Sans';
-     font-size: 30px;
+     font-family: 'El Messiri';
+     font-size: 18px;
 }
 .pull-right{
     text-decoration: none;
     color: yellow; 
 }
- button:hover > .glyphicon{
+ button:hover > .glyphicon .glyphicon-star{
       text-decoration: none;
-    color: black; 
+      color: red;
  }
 .search-results {
       height: 100%;
+}
+
+.font-color span a strong
+{
+    color: black;
+}
+
+.form-group
+{
+    padding-left:5%;
+    padding-right:5%;
+}
+md-card-title
+{
+    font-size: 18px;
+    font-family: 'El Messiri';
+
 }
