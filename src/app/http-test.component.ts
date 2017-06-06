@@ -4,12 +4,13 @@ import {MaterialModule} from '@angular/material';
 import {movieDetails} from './movie-details'
 import { InfiniteScroll } from 'angular2-infinite-scroll';
 import {genreService} from './genre.service';
+import { favoriteComponent } from "./app.favorite";
 
 @Component({
   selector: 'http-test',
   templateUrl: './http-test.component.html',
   styleUrls:['./http-test.component.css'],
-  providers:[HTTPTestService,genreService]
+  providers:[HTTPTestService,genreService,favoriteComponent]
 })
 
 export class HTTPTestComponent {
@@ -23,12 +24,12 @@ export class HTTPTestComponent {
     totalpage:number;
     generArray=[];
    
-    constructor(private httpservice:HTTPTestService,private genreservice:genreService){}
+    constructor(private httpservice:HTTPTestService,private genreservice:genreService,private fav:favoriteComponent){}
 
   //Read JSON value from movieApp API  
     onTestGet(value,page)
     {
-      // nethod to get movie result
+      // method to get movie result
         this.httpservice.getcurrentData(value)
         .subscribe(
             data=>{this.getData=data.results;
@@ -44,15 +45,6 @@ export class HTTPTestComponent {
           error=>alert(error),
           ()=>console.log("completed")
         );
-    }
-
-  //Push data into MovieArray 
-   pushData(a,b,c,d,e,f)
-   {
-     let obj={a,b,c,d,e,f}
-     this.MovieArray.push(obj);
-     console.log(this.MovieArray);
-     return this.MovieArray;
     }
 
 // Genre function

@@ -1,4 +1,29 @@
 
- <http-test></http-test>
-     
+ <md-toolbar>
+
+<nav  class="navbar navbar-inverse navbar-fixed-top nav-color opaque-navbar">
+        <div>
+               <button type="button" class="navbar-toggle collapsed" data-target=".navbarCollapse" data-toggle="collapse" aria-expanded="false">
+               <span class="sr-only">Toggle navigation</span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>                        
+              </button>
+               <div class="navbar-brand image-align page-scroll">
+                 <span class="page-scroll pad img-responsive">MOVIE APP</span>
+               </div>
+            </div>
+            <div class="navbar-collapse collapse page-scroll navbarCollapse">
+               <ul class="nav navbar-nav padding-class">
+                  
+                 <li><a routerLink="/Home" routerLinkActive="active" class="page-scroll" >Home</a></li>
+                  <li><a routerLink="/Favorite" class="page-scroll">Favorites</a></li>
+               </ul>
+            
+           </div>
+         </nav>
+    
+</md-toolbar>
+
+<router-outlet></router-outlet>
  

@@ -1,0 +1,57 @@
+<!--<h3>My Favorites</h3>
+  <div *ngIf='this.fav.MovieArrayFav' >
+
+
+    <md-card id="card" *ngFor='let re of this.fav.MovieArrayFav'>
+   <div class="row">
+      <div class="col-md-6">
+         <img src="https://image.tmdb.org/t/p/w500{{re.poster_path}}" alt="image" class="img-align">
+      </div>
+      <div class="col-md-6">
+  
+         <md-card-title class="panel panel-default">Title: {{re.title}}<button class="glyphicon glyphicon-remove pull-right" (click)=deletedata(re.id)></button></md-card-title>
+         <br>
+         <md-card-title>id: {{re.id}}</md-card-title>
+         <br>
+         <md-card-title>Vote Average {{re.popularity}}</md-card-title>
+         <br>
+         <md-card-title >Popularity: {{re.vote_average}}</md-card-title>
+         <br>   
+         <md-card-title class="well">Overview: {{re.overview}}</md-card-title>
+         <br>
+         
+      </div>
+   </div>
+</md-card>
+  </div>-->
+
+
+
+<body>
+ <div class="jumbotron">
+  <div class="form-group">
+  <md-card id="card" *ngFor='let re of this.fav.MovieArrayFav'>
+   <div class="row">
+      <div class="col-md-5">
+         <img src="https://image.tmdb.org/t/p/w500{{re.poster_path}}" alt="image" class="img-align">
+      </div>
+      <div class="col-md-7">
+         <md-card-title class="panel panel-default">Title: {{re.title}}<button class="	glyphicon glyphicon-remove-circle pull-right" (click)=deletedata(re.id)></button></md-card-title>
+         <br>
+         <md-card-title>Language: {{re.original_language}}</md-card-title>
+         <br>
+         <md-card-title>Popularity: {{re.popularity}}</md-card-title>
+         <br>   
+          
+         <md-card-title >Vote Average: {{re.vote_average}}</md-card-title>
+         <br>
+         <button class='glyphicon glyphicon-edit pull-right' (click)=putdata(re.id,re.title,re.overview,re.release_date,re.poster_path,re.popularity,re.vote_average,re.original_language)></button>
+         <textarea [(ngModel)]="re.overview" >Overview: {{re.overview}}</textarea>
+         <br>
+      </div>
+   </div>
+</md-card>
+</div>
+</div>
+</body>
+

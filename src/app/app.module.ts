@@ -10,12 +10,15 @@ import { InfiniteScrollModule } from 'angular2-infinite-scroll';
 import { AppComponent } from './app.component';
 import { HTTPTestComponent } from './http-test.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
-import {RouterModule} from '@angular/router'
+import {RouterModule} from '@angular/router';
+import {favoriteComponent} from './app.favorite';
+import { favoriteService } from "./app-favorite.service";
 
 @NgModule({
   declarations: [
     AppComponent,
-    HTTPTestComponent
+    HTTPTestComponent,
+    favoriteComponent
   ],
   imports: [
     BrowserModule,
@@ -29,8 +32,20 @@ import {RouterModule} from '@angular/router'
     MdInputModule,
     BrowserAnimationsModule,
     InfiniteScrollModule,
+    RouterModule.forRoot([
+      {
+        path:"",redirectTo:'/Home',pathMatch:'full'
+      },
+      {
+      path:'Home',
+      component:HTTPTestComponent
+     },
+     {
+      path:'Favorite',
+      component:favoriteComponent
+    }] )
   ],
-  providers: [],
+  providers: [favoriteService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
